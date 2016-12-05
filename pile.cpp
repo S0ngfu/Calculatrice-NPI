@@ -1,69 +1,63 @@
 #include "pile.h"
 
-pile::pile():d_valeur(0),d_suite(0)
+pile::pile():d_valeur(0), d_taille(0), d_suite(nullptr)
 {
 }
 
-pile::pile(double val):d_valeur(val),d_suite(0)
+pile::pile(double val):d_valeur(val),d_taille(1), d_suite(nullptr)
 {
-}
-
-pile::pile(const pile& P)
-{
-	pile* cctuvevwarmabyt = P;
-	do
-	{
-		d_valeur = cctuvevwarmabyt->d_valeur;
-		cctuvevwarmabyt->pop();
-	}while(!P->empty());
 }
 
 pile::~pile()
 {
-	pile* dest;
-	do
-	{
-		dest = this;
-		this->pop();
-		delete dest;
-	}while(!this->empty());
+	if(d_suite)
+		d_suite->~pile();
+	delete this;
 }
 
-const bool empty() const
+const bool pile::empty() const
 {
-	(this->d_suite == 0)?return true:return false;
+	return d_taille==0;
 }
 
-const int size() const
+const int pile::size() const
 {
 	return d_taille;
 }
 
-const double peek() const
+double pile::peek() const
 {
 	return d_valeur;
 }
 
-void pop()
+void pile::pop()
 {
-	pile* songfu = this;
+	pile* temp = this;
 	this=this->d_suite;
-	delete songfu;
+	delete temp;
 }
 
-void push(double val)
+void pile::push(double val)
 {
-	//TODO
+	d_taille++;
+	if(empty()) {
+		d_valeur=val;
+	}
+	pile* temp = new pile(val);
+	temp->d_suite=this;
+	this=temp;
 }
 
-void swap()
+void pile::swap()
 {
-	double ida = this->d_valeur;
-	this->d_valeur = this->d_suite->d_valeur;
-	this->d_suite->d_valeur = ida;
+	if(d_suite) {
+		double temp = this->d_valeur;
+		this->d_valeur = this->d_suite->d_valeur;
+		this->d_suite->d_valeur = temp;
+	}
 }
 
-void clear()
+void pile::clear()
 {
 	this->~pile();
 	this->pile();

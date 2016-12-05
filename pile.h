@@ -7,15 +7,14 @@ class pile {
 		// Public Declarations
 		pile();
 		pile(double val);
-		pile(const pile& P);
 		~pile();
 		
 		const bool empty() const;
 		const int size() const;
-		const double peek() const;
+		double peek() const;
 		void pop();
 		void push(double val);
-		void swap(); // swap les deux derniers éléments
+		void swap(); // swap les deux derniers Ã©lÃ©ments
 		void clear();
 		
 	private:
@@ -27,4 +26,3 @@ class pile {
 
 
 #endif
-
