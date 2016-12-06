@@ -1,13 +1,12 @@
 #ifndef PILE_H
 #define PILE_H
 
-class pile {
-	// Private section
+class Pile {
 	public:
 		// Public Declarations
-		pile();
-		pile(double val);
-		~pile();
+		Pile();
+		Pile(double val);
+		~Pile();
 		
 		const bool empty() const;
 		const int size() const;
@@ -20,8 +19,8 @@ class pile {
 	private:
 		// Private Declarations
 		double d_valeur;
-		static int d_taille;
-		pile* d_suite;
+		int d_taille;
+		Pile* d_suite;
 };
 
 
