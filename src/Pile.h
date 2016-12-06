@@ -9,7 +9,6 @@ class Pile {
 		~Pile();
 		
 		const bool empty() const;
-		const int size() const;
 		double peek() const;
 		void pop();
 		void push(double val);
@@ -19,7 +18,6 @@ class Pile {
 	private:
 		// Private Declarations
 		double d_valeur;
-		int d_taille;
 		Pile* d_suite;
 };
 
