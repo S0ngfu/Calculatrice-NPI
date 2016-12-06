@@ -14,5 +14,17 @@ TEST_CASE("Pile initialisation", "[pile]")
     {
         REQUIRE(test->peek() == 0.0);
         REQUIRE(test->empty());
+        test->push(4.21);
+        REQUIRE(test->peek() == 4.21);
+        REQUIRE(test->size() == 1);
+    }
+    Pile* test2 = new Pile(5.23);
+    SECTION("Pile non vide")
+    {
+        REQUIRE(test2->peek() == 5.23);
+        REQUIRE(!test2->empty());
+        test2->push(4.21);
+        REQUIRE(test2->peek() == 4.21);
+        REQUIRE(test2->size() == 2);
     }
 }
