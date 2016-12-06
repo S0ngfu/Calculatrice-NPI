@@ -39,7 +39,7 @@ void Pile::push(double val)
 	} else {
         Pile *temp = new Pile(val);
         temp->d_suite = this;
-//   	this=temp;
+//        this=temp;
     }
 }
 

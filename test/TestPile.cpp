@@ -7,6 +7,7 @@
 #include "../src/Pile.cpp"
 #include "catch.hpp"
 
+
 TEST_CASE("Pile initialisation", "[pile]")
 {
     Pile* test = new Pile();
@@ -16,7 +17,7 @@ TEST_CASE("Pile initialisation", "[pile]")
         REQUIRE(test->empty());
         test->push(4.21);
         REQUIRE(test->peek() == 4.21);
-        REQUIRE(test->size() == 1);
+        REQUIRE(!test->empty());
     }
     Pile* test2 = new Pile(5.23);
     SECTION("Pile non vide")
@@ -25,6 +26,6 @@ TEST_CASE("Pile initialisation", "[pile]")
         REQUIRE(!test2->empty());
         test2->push(4.21);
         REQUIRE(test2->peek() == 4.21);
-        REQUIRE(test2->size() == 2);
+        REQUIRE(!test2->empty());
     }
 }
