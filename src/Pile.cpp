@@ -5,7 +5,7 @@ Pile::Pile()
 	_pile.reserve(5);
 }
 
-Pile::Pile(double val):
+Pile::Pile(double val)
 {
 	_pile.reserve(5);
 	_pile.push_back(val);
