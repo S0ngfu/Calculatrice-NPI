@@ -11,6 +11,7 @@ public:
 	~Pile() = default;
 
 	const bool empty() const;
+    const unsigned long long int size() const;
 	double peek() const;
 	void pop();
 	void push(const double& val);
@@ -19,7 +20,7 @@ public:
 
 private:
 	// Private Declarations
-	std::vector<double> _pile;
+    std::vector<double> _pile;
 };
 
 

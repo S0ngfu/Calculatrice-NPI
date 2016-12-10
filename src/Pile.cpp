@@ -16,9 +16,13 @@ const bool Pile::empty() const
 	return _pile.empty();
 }
 
+const unsigned long long int Pile::size() const {
+    return _pile.size();
+}
+
 double Pile::peek() const
 {
-	return _pile[_pile.size()];
+	return _pile[_pile.size()-1];
 }
 
 void Pile::pop()
@@ -35,9 +39,9 @@ void Pile::swap()
 {
 	if(_pile.size() > 1)
 	{
-		double temp = _pile[_pile.size()];
-		_pile[_pile.size()] = _pile[_pile.size()-1];
-		_pile[_pile.size()-1]=temp;
+		double temp = _pile[_pile.size()-1];
+		_pile[_pile.size()-1] = _pile[_pile.size()-2];
+		_pile[_pile.size()-2]=temp;
 	}
 }
 
