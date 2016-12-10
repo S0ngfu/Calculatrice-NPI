@@ -1,59 +1,47 @@
 #include "Pile.h"
 
-Pile::Pile():d_valeur(0), d_suite(nullptr)
+Pile::Pile()
 {
+	_pile.reserve(5);
 }
 
-Pile::Pile(double val):d_valeur(val), d_suite(nullptr)
+Pile::Pile(double val):
 {
-}
-
-Pile::~Pile()
-{
-	if(d_suite)
-		d_suite->~Pile();
-	delete this;
+	_pile.reserve(5);
+	_pile.push_back(val);
 }
 
 const bool Pile::empty() const
 {
-	return (d_valeur==0.0 && !d_suite);
+	return _pile.empty();
 }
 
 double Pile::peek() const
 {
-	return d_valeur;
+	return _pile[_pile.size()];
 }
 
 void Pile::pop()
 {
-    Pile* temp=d_suite;
-    delete this;
-//    this=temp;
+    _pile.pop_back();
 }
 
-void Pile::push(double val)
+void Pile::push(const double& val)
 {
-	if(empty()) {
-		d_valeur=val;
-	} else {
-        Pile *temp = new Pile(val);
-        temp->d_suite = this;
-//        this=temp;
-    }
+	_pile.push_back(val);
 }
 
 void Pile::swap()
 {
-	if(d_suite) {
-		double temp = this->d_valeur;
-		this->d_valeur = this->d_suite->d_valeur;
-		this->d_suite->d_valeur = temp;
+	if(_pile.size() > 1)
+	{
+		double temp = _pile[_pile.size()];
+		_pile[_pile.size()] = _pile[_pile.size()-1];
+		_pile[_pile.size()-1]=temp;
 	}
 }
 
 void Pile::clear()
 {
-	this->~Pile();
-	new Pile();
+	_pile.clear();
 }

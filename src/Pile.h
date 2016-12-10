@@ -1,24 +1,25 @@
 #ifndef PILE_H
 #define PILE_H
 
+#include <vector>
+
 class Pile {
-	public:
-		// Public Declarations
-		Pile();
-		Pile(double val);
-		~Pile();
-		
-		const bool empty() const;
-		double peek() const;
-		void pop();
-		void push(double val);
-		void swap(); // swap les deux derniers éléments
-		void clear();
-		
-	private:
-		// Private Declarations
-		double d_valeur;
-		Pile* d_suite;
+public:
+	// Public Declarations
+	Pile();
+	Pile(double val);
+	~Pile() = default;
+
+	const bool empty() const;
+	double peek() const;
+	void pop();
+	void push(const double& val);
+	void swap(); // swap les deux derniers éléments
+	void clear();
+
+private:
+	// Private Declarations
+	std::vector<double> _pile;
 };
 
 
