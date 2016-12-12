@@ -10,6 +10,7 @@
 
 TEST_CASE("Pile initialisation", "[pile]")
 {
+    //A OPTI, possibilité de bien mieux faire.
     Pile test;
     SECTION("Pile vide")
     {
@@ -32,7 +33,12 @@ TEST_CASE("Pile initialisation", "[pile]")
         REQUIRE(test2.size() == 2);
         test2.swap();
         REQUIRE(test2.peek() == 5.23);
-        
+        REQUIRE(test2.size() == 2);
+
+        double temp=test2.peek_pop();
+        REQUIRE(temp == 5.23);
+        REQUIRE(test2.size() == 1);
+
         test2.clear();
         REQUIRE(test2.empty());
     }
