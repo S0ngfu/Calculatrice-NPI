@@ -25,6 +25,13 @@ double Pile::peek() const
 	return _pile[_pile.size()-1];
 }
 
+double Pile::peek_pop()
+{
+    double temp=peek();
+    pop();
+    return temp;
+}
+
 void Pile::pop()
 {
     _pile.pop_back();
