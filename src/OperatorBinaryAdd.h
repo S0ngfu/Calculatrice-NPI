@@ -10,8 +10,7 @@
 class OperatorBinaryAdd: public OperatorBinary {
 public:
     OperatorBinaryAdd();
-
-    static double operate(double val1, double val2);
+    virtual double operate(double val1, double val2) override;
 };
 
 

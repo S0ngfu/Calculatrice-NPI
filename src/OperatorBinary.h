@@ -8,6 +8,7 @@
 
 class OperatorBinary {
 public:
+    virtual ~OperatorBinary();
     virtual double operate(double val1, double val2) =0;
 };
 

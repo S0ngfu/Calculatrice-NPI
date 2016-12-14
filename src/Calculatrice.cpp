@@ -1,13 +1,12 @@
 //
 // Created by Simon on 06/12/2016.
 //
-//Operation -> 2 constructeur, l'un avec double et l'autre avec char
+
 
 #include <string>
 #include <iostream>
 #include "Pile.h"
-#include "OperatorBinary.h"
-#include "OperatorUnary.h"
+
 #include "OperatorBinaryAdd.h"
 
 bool isOnlyDouble(const char* str)
@@ -21,8 +20,8 @@ bool isOnlyDouble(const char* str)
 int main(int argc, char* argv[])
 {
     Pile mypile;
-    bool quit = true;
-    while(quit) {
+    bool quit = false;
+    while(!quit) {
         std::string inputs;
         std::cin >> inputs;
         const char *c = inputs.c_str();
@@ -35,7 +34,9 @@ int main(int argc, char* argv[])
                     mypile.push(OperatorBinaryAdd::operate(mypile.peek_pop(), mypile.peek_pop()));
                     break;
                 case 'q':
-                    quit=false;
+                    quit=true;
+                default:
+                    break;
             }
         }
     }
