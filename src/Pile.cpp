@@ -25,14 +25,14 @@ double Pile::peek() const
 	return _pile[_pile.size()-1];
 }
 
-double Pile::peek_pop()
+double Pile::return_pop_back()
 {
     double temp=peek();
-    pop();
+    pop_back();
     return temp;
 }
 
-void Pile::pop()
+void Pile::pop_back()
 {
     _pile.pop_back();
 }

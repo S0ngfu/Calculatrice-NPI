@@ -35,7 +35,7 @@ TEST_CASE("Pile initialisation", "[pile]")
         REQUIRE(test2.peek() == 5.23);
         REQUIRE(test2.size() == 2);
 
-        double temp=test2.peek_pop();
+        double temp= test2.return_pop_back();
         REQUIRE(temp == 5.23);
         REQUIRE(test2.size() == 1);
 

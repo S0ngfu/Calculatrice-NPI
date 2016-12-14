@@ -30,15 +30,20 @@ int main(int argc, char* argv[])
             mypile.push(temp);
         } else {
             switch (c[0]) {
-                case '+':
-                    mypile.push(OperatorBinaryAdd::operate(mypile.peek_pop(), mypile.peek_pop()));
+                case '+': {
+                    OperatorBinaryAdd op;
+                    mypile.push(op.operate(mypile.return_pop_back(), mypile.return_pop_back()));
                     break;
-                case 'q':
-                    quit=true;
+                }
+                case 'q': {
+                    quit = true;
+                    break;
+                }
                 default:
                     break;
             }
         }
+        std::cout<<mypile.peek()<<std::endl;
     }
     return 0;
 }
