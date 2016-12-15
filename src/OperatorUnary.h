@@ -10,7 +10,7 @@
 class OperatorUnary: public Operator {
 public:
     virtual ~OperatorUnary() = default;
-    virtual double operate(double val1) =0;
+    virtual double operate(double val) =0;
 };
 
 

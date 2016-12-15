@@ -4,6 +4,7 @@
 
 #include "Calculatrice.h"
 #include "OperatorBinaryAdd.h"
+#include "OperatorUnarySquare.h"
 
 #include <string>
 
@@ -17,11 +18,17 @@ bool Calculatrice::isOnlyDouble(const char* str)
 
 void Calculatrice::operateChoice(const std::string &operateur)
 {
+    OperatorBinary* operationBin;
+    OperatorUnary* operationUn;
     switch (operateur[0])
     {
         case '+':
-            addOperate(new OperatorBinaryAdd());
+            operationBin = new OperatorBinaryAdd();
+            addOperate(operationBin);
             break;
+        case 's':
+            operationUn = new OperatorUnarySquare();
+            addOperate(operationUn);
         case 'q':
             //quit = true;
             break;
@@ -33,11 +40,11 @@ void Calculatrice::operateChoice(const std::string &operateur)
 
 void Calculatrice::addOperate(OperatorBinary* operation)
 {
-    operation.operate(d_pile.return_pop_back(),
+    operation->operate(d_pile.return_pop_back(),
                       d_pile.return_pop_back());
 }
 
 void Calculatrice::addOperate(OperatorUnary* operation)
 {
-    operation.operate(d_pile.return_pop_back());
+    operation->operate(d_pile.return_pop_back());
 }

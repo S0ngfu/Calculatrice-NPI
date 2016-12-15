@@ -8,7 +8,6 @@
 class Operator {
 public:
     virtual ~Operator() = default;
-    virtual double operate(double val1) =0;
 };
 
 #endif //CALCULATRICE_NPI_OPERATOR_H
