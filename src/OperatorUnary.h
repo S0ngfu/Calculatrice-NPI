@@ -5,9 +5,12 @@
 #ifndef CALCULATRICE_NPI_OPERATORUNARY_H
 #define CALCULATRICE_NPI_OPERATORUNARY_H
 
+#include "Operator.h"
 
-class OperatorUnary {
-
+class OperatorUnary: public Operator {
+public:
+    virtual ~OperatorUnary() = default;
+    virtual double operate(double val1) =0;
 };
 
 

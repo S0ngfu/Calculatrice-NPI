@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
         }
         else
         {
-                    mycalculatrice.operate();
+            mycalculatrice.operateChoice();
         }
         cout<<mypile.peek()<<std::endl;
     }

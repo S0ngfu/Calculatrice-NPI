@@ -6,12 +6,16 @@
 #define CALCULATRICE_NPI_CALCULATRICE_H
 
 #include "Pile.h"
+#include "OperatorBinary.h"
+#include "OperatorUnary.h"
 
 class Calculatrice
 {
 public:
     bool isOnlyDouble(const char* str);
-    void operate(const std::string &operateur);
+    void operateChoice(const std::string &operateur);
+    void addOperate(OperatorBinary* operation);
+    void addOperate(OperatorUnary* operation);
 private:
     Pile d_pile;
 };

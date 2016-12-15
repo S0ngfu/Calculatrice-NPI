@@ -9,9 +9,8 @@
 
 class OperatorBinaryAdd: public OperatorBinary {
 public:
-    virtual ~OperatorBinaryAdd() = default;
+    OperatorBinaryAdd();
     virtual double operate(double val1, double val2) override;
 };
-
 
 #endif //CALCULATRICE_NPI_OPERATORBINARYADD_H

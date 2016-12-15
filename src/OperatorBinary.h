@@ -5,7 +5,9 @@
 #ifndef CALCULATRICE_NPI_OPERATORBINARY_H
 #define CALCULATRICE_NPI_OPERATORBINARY_H
 
-class OperatorBinary {
+#include "Operator.h"
+
+class OperatorBinary: public Operator {
 public:
     virtual ~OperatorBinary() = default;
     virtual double operate(double val1, double val2) =0;

@@ -2,6 +2,7 @@
 #define PILE_H
 
 #include "OperatorBinary.h"
+#include "OperatorUnary.h"
 
 #include <vector>
 #include <string>
@@ -12,8 +13,6 @@ public:
 	Pile();
 	Pile(double val);
 	~Pile() = default;
-
-    void operate(OperatorBinary operation);
 
 	const bool empty() const;
     const unsigned long long int size() const;

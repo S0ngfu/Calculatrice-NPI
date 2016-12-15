@@ -56,3 +56,4 @@ void Pile::clear()
 {
 	_pile.clear();
 }
+
