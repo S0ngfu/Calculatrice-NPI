@@ -5,7 +5,6 @@
 #ifndef CALCULATRICE_NPI_OPERATORBINARY_H
 #define CALCULATRICE_NPI_OPERATORBINARY_H
 
-
 class OperatorBinary {
 public:
     virtual ~OperatorBinary() = default;
