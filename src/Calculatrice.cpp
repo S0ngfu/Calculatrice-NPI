@@ -44,6 +44,9 @@ void Calculatrice::operateChoice(const std::string &operateur)
             operationUn = new OperatorUnarySquareRoot();
             addOperate(operationUn);
             break;
+        case 'w':
+            d_pile.swap();
+            break;
         case 'q':
             //quit = true;
             break;
