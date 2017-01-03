@@ -2,6 +2,7 @@
 #include "OperatorBinaryAdd.h"
 #include "OperatorUnarySquare.h"
 #include "OperatorBinarySubtract.h"
+#include "OperatorBinaryDivide.h"
 
 bool Calculatrice::isOnlyDouble(const char* str)
 {
@@ -23,6 +24,10 @@ void Calculatrice::operateChoice(const std::string &operateur)
             break;
         case '-':
             operationBin = new OperatorBinarySubtract();
+            addOperate(operationBin);
+            break;
+        case '/':
+            operationBin = new OperatorBinaryDivide();
             addOperate(operationBin);
             break;
         case 's':
