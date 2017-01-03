@@ -12,8 +12,9 @@
 class Calculatrice
 {
 public:
+    void run();
     bool isOnlyDouble(const char* str);
-    void operateChoice(const std::string &operateur);
+    void operateChoice(const std::string &operateur, bool& quit);
     void addOperate(OperatorBinary* operation);
     void addOperate(OperatorUnary* operation);
 private:

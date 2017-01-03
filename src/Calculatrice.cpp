@@ -6,6 +6,8 @@
 #include "OperatorBonaryMultiply.h"
 #include "OperatorUnarySquareRoot.h"
 
+#include <iostream>
+
 bool Calculatrice::isOnlyDouble(const char* str)
 {
     char* endptr = 0;
@@ -14,7 +16,7 @@ bool Calculatrice::isOnlyDouble(const char* str)
     return !(*endptr != '\0' || endptr == str);
 }
 
-void Calculatrice::operateChoice(const std::string &operateur)
+void Calculatrice::operateChoice(const std::string &operateur, bool& quit)
 {
     OperatorBinary* operationBin;
     OperatorUnary* operationUn;
@@ -48,7 +50,7 @@ void Calculatrice::operateChoice(const std::string &operateur)
             d_pile.swap();
             break;
         case 'q':
-            //quit = true;
+            quit=true;
             break;
         default:
             break;
@@ -58,11 +60,31 @@ void Calculatrice::operateChoice(const std::string &operateur)
 
 void Calculatrice::addOperate(OperatorBinary* operation)
 {
-    operation->operate(d_pile.return_pop_back(),
-                      d_pile.return_pop_back());
+    d_pile.push(operation->operate(d_pile.return_pop_back(),
+                      d_pile.return_pop_back()));
 }
 
 void Calculatrice::addOperate(OperatorUnary* operation)
 {
-    operation->operate(d_pile.return_pop_back());
+    d_pile.push(operation->operate(d_pile.return_pop_back()));
+}
+
+void Calculatrice::run() {
+    bool quit = false;
+    while(!quit)
+    {
+        std::string inputs;
+        std::cin >> inputs;
+        const char *c = inputs.c_str();
+        if (isOnlyDouble(c))
+        {
+            double temp = stod(inputs, 0);
+            d_pile.push(temp);
+        }
+        else
+        {
+            operateChoice(c,quit);
+        }
+        std::cout<<d_pile.peek()<<std::endl;
+    }
 }
