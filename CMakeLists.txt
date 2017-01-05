@@ -32,7 +32,19 @@ set(SOURCE_FILES
         src/InterfaceConsole.h
         src/InterfaceGraphique.cpp
         src/InterfaceGraphique.h)
+
 add_executable(Calc ${SOURCE_FILES})
+
+set(Qt5Core_DIR "F:/Qt/5.8/msvc2015_64/lib/cmake/Qt5Core")
+set(Qt5Widgets_DIR "F:/Qt/5.8/msvc2015_64/lib/cmake/Qt5Widgets")
+set(Qt5Quick_DIR "F:/Qt/5.8/msvc2015_64/lib/cmake/Qt5Quick")
+
+#découverte de Qt, on ne sait pas encore précisement ce que l'on va utiliser
+find_package( Qt5Core REQUIRED )
+find_package( Qt5Widgets REQUIRED )
+find_package( Qt5Gui REQUIRED )
+find_package( Qt5Quick REQUIRED )
+qt5_use_modules( Calc Core Widgets Gui Quick)
 
 set(TEST_FILES test/catch.hpp
         test/TestPile.cpp)
