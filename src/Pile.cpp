@@ -3,6 +3,7 @@
 Pile::Pile()
 {
 	_pile.reserve(5);
+	_pile.push_back(0);
 }
 
 Pile::Pile(double val)
@@ -39,6 +40,8 @@ void Pile::pop_back()
 
 void Pile::push(const double& val)
 {
+	if(peek() == 0 && size()==1)
+		_pile.pop_back();
 	_pile.push_back(val);
 }
 
