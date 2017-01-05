@@ -3,7 +3,7 @@
 #include "OperatorUnarySquare.h"
 #include "OperatorBinarySubtract.h"
 #include "OperatorBinaryDivide.h"
-#include "OperatorBonaryMultiply.h"
+#include "OperatorBinaryMultiply.h"
 #include "OperatorUnarySquareRoot.h"
 
 #include <iostream>
@@ -60,13 +60,14 @@ void Calculatrice::operateChoice(const std::string &operateur, bool& quit)
 
 void Calculatrice::addOperate(OperatorBinary* operation)
 {
-    d_pile.push(operation->operate(d_pile.return_pop_back(),
-                      d_pile.return_pop_back()));
+    if(d_pile.size()>=2)
+        d_pile.push(operation->operate(d_pile.return_pop_back(), d_pile.return_pop_back()));
 }
 
 void Calculatrice::addOperate(OperatorUnary* operation)
 {
-    d_pile.push(operation->operate(d_pile.return_pop_back()));
+    if(d_pile.size()>=1)
+        d_pile.push(operation->operate(d_pile.return_pop_back()));
 }
 
 void Calculatrice::run() {

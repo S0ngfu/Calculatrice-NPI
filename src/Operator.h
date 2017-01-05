@@ -1,7 +1,3 @@
-//
-// Created by Simon on 15/12/2016.
-//
-
 #ifndef CALCULATRICE_NPI_OPERATOR_H
 #define CALCULATRICE_NPI_OPERATOR_H
 

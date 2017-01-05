@@ -1,14 +1,10 @@
-//
-// Created by Simon on 05/12/2016.
-//
-
 #define CATCH_CONFIG_MAIN
 
-#include "../src/Pile.cpp"
+#include "../src/Pile.h"
 #include "catch.hpp"
 
 
-TEST_CASE("Pile initialisation", "[pile]")
+TEST_CASE("Pile", "[pile]")
 {
     //A OPTI, possibilité de bien mieux faire.
     Pile test;
@@ -27,10 +23,11 @@ TEST_CASE("Pile initialisation", "[pile]")
         REQUIRE(test2.peek() == 5.23);
         REQUIRE(!test2.empty());
         REQUIRE(test2.size() == 1);
+
         test2.push(4.21);
         REQUIRE(test2.peek() == 4.21);
-        REQUIRE(!test2.empty());
         REQUIRE(test2.size() == 2);
+
         test2.swap();
         REQUIRE(test2.peek() == 5.23);
         REQUIRE(test2.size() == 2);

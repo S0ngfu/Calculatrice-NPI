@@ -1,0 +1,10 @@
+#ifndef CALCULATRICE_NPI_INTERFACE_H
+#define CALCULATRICE_NPI_INTERFACE_H
+
+
+class Interface {
+
+};
+
+
+#endif //CALCULATRICE_NPI_INTERFACE_H
