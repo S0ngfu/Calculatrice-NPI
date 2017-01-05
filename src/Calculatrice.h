@@ -8,11 +8,13 @@
 class Calculatrice
 {
 public:
-    void run();
+    bool input(std::string& inputs);
     bool isOnlyDouble(const char* str);
     void operateChoice(const std::string &operateur, bool& quit);
     void addOperate(OperatorBinary* operation);
     void addOperate(OperatorUnary* operation);
+    Pile getPile();
+
 private:
     Pile d_pile;
 };

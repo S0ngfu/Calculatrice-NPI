@@ -60,32 +60,33 @@ void Calculatrice::operateChoice(const std::string &operateur, bool& quit)
 
 void Calculatrice::addOperate(OperatorBinary* operation)
 {
-    if(d_pile.size()>=2)
+    if(d_pile.size() >= 2)
         d_pile.push(operation->operate(d_pile.return_pop_back(), d_pile.return_pop_back()));
 }
 
 void Calculatrice::addOperate(OperatorUnary* operation)
 {
-    if(d_pile.size()>=1)
+    if(d_pile.size() >= 1)
         d_pile.push(operation->operate(d_pile.return_pop_back()));
 }
 
-void Calculatrice::run() {
+bool Calculatrice::input(std::string& inputs)
+{
     bool quit = false;
-    while(!quit)
+    const char *c = inputs.c_str();
+    if (isOnlyDouble(c))
     {
-        std::string inputs;
-        std::cin >> inputs;
-        const char *c = inputs.c_str();
-        if (isOnlyDouble(c))
-        {
-            double temp = stod(inputs, 0);
-            d_pile.push(temp);
-        }
-        else
-        {
-            operateChoice(c,quit);
-        }
-        std::cout<<d_pile.peek()<<std::endl;
+        double temp = stod(inputs, 0);
+        d_pile.push(temp);
     }
+    else
+    {
+        operateChoice(c, quit);
+    }
+    return quit;
+}
+
+Pile Calculatrice::getPile()
+{
+    return d_pile;
 }

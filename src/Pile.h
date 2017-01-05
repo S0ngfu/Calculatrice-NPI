@@ -22,7 +22,7 @@ public:
 	void push(const double& val);
 	void swap(); // swap les deux derniers éléments
 	void clear();
-
+	std::vector<double> peekLast5() const;
 private:
 	// Private Declarations
     std::vector<double> _pile;

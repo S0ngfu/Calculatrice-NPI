@@ -17,7 +17,21 @@ set(SOURCE_FILES
         src/OperatorUnary.h
         src/OperatorUnary.cpp
         src/OperatorUnarySquare.h
-        src/OperatorUnarySquare.cpp src/OperatorBinarySubtract.cpp src/OperatorBinarySubtract.h src/OperatorBinaryDivide.cpp src/OperatorBinaryDivide.h src/OperatorBinaryMultiply.cpp src/OperatorBinaryMultiply.h src/OperatorUnarySquareRoot.cpp src/OperatorUnarySquareRoot.h src/Interface.cpp src/Interface.h)
+        src/OperatorUnarySquare.cpp
+        src/OperatorBinarySubtract.cpp
+        src/OperatorBinarySubtract.h
+        src/OperatorBinaryDivide.cpp
+        src/OperatorBinaryDivide.h
+        src/OperatorBinaryMultiply.cpp
+        src/OperatorBinaryMultiply.h
+        src/OperatorUnarySquareRoot.cpp
+        src/OperatorUnarySquareRoot.h
+        src/Interface.cpp
+        src/Interface.h
+        src/InterfaceConsole.cpp
+        src/InterfaceConsole.h
+        src/InterfaceGraphique.cpp
+        src/InterfaceGraphique.h)
 add_executable(Calc ${SOURCE_FILES})
 
 set(TEST_FILES test/catch.hpp

@@ -40,7 +40,7 @@ void Pile::pop_back()
 
 void Pile::push(const double& val)
 {
-	if(peek() == 0 && size()==1)
+	if(peek() == 0 && size() == 1)
 		_pile.pop_back();
 	_pile.push_back(val);
 }
@@ -58,5 +58,21 @@ void Pile::swap()
 void Pile::clear()
 {
 	_pile.clear();
+}
+
+std::vector<double> Pile::peekLast5() const
+{
+	std::vector<double> temp;
+	if(size()>5)
+	{
+		for(int i = size()-5 ; i <= size() ; i++)
+		{
+			temp.push_back(_pile[i]);
+		}
+	} else {
+		temp = _pile;
+	}
+
+	return temp;
 }
 
