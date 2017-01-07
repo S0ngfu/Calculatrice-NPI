@@ -3,6 +3,8 @@
 
 class Operator {
 public:
+	///
+	/// \brief Constructeur par défaut
     virtual ~Operator() = default;
 };
 

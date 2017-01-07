@@ -5,7 +5,15 @@
 
 class OperatorBinary: public Operator {
 public:
+	///
+	/// \brief Destructeur par défaut
     virtual ~OperatorBinary() = default;
+    
+    ///
+	/// \brief Effectue l'opération binaire
+	/// \param[in] val1 : Valeur subissant l'opération binaire
+	/// \param[in] val2 : Valeur subissant l'opération binaire
+	/// \return Le résultat de l'opération binaire
     virtual double operate(double val1, double val2) =0;
 };
 

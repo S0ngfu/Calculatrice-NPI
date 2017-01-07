@@ -6,7 +6,15 @@
 class OperatorBinarySubtract: public OperatorBinary
 {
 public:
-    OperatorBinarySubtract() =default;
+	///
+	/// \brief Constructeur par défaut
+    OperatorBinarySubtract() = default;
+    
+    ///
+	/// \brief Effectue l'opération "soustraction"
+	/// \param[in] val1 : Valeur soustraite
+	/// \param[in] val2 : Valeur à soustraire
+	/// \return Le résultat de la soustraction
     virtual double operate(double val1, double val2) override;
 };
 

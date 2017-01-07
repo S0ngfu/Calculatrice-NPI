@@ -7,7 +7,14 @@
 class OperatorUnarySquareRoot: public OperatorUnary
 {
 public:
-    OperatorUnarySquareRoot()=default;
+	///
+	/// \brief Constructeur par défaut
+    OperatorUnarySquareRoot() = default;
+    
+    ///
+	/// \brief Effectue une racine carrée
+	/// \param[in] val1 : Valeur à mettre en racine carrée
+	/// \return Le résultat de la racine carrée
     virtual double operate(double val);
 };
 

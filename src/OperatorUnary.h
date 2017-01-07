@@ -5,7 +5,14 @@
 
 class OperatorUnary: public Operator {
 public:
+	///
+	/// \brief Destructeur par défaut
     virtual ~OperatorUnary() = default;
+    
+    ///
+	/// \brief Effectue une opération unaire
+	/// \param[in] val1 : Valeur subissant l'opération unaire
+	/// \return Le résultat de l'opération
     virtual double operate(double val) =0;
 };
 
