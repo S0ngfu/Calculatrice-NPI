@@ -17,15 +17,15 @@ public:
 	
 	///
 	/// \brief Constructeur
-	/// \param[in] val : Valeur ‡ ajouter ‡ la pile
+	/// \param[in] val : Valeur √† ajouter √† la pile
 	Pile(double val);
 	
 	///
-	/// \brief Destructeur par dÈfaut
+	/// \brief Destructeur par d√©faut
 	~Pile() = default;
 	
 	///
-	/// \brief VÈrifie si la pile est vide
+	/// \brief V√©rifie si la pile est vide
 	/// \return True si la pile est vide, False sinon
 	const bool empty() const;
 	
@@ -35,26 +35,31 @@ public:
     const unsigned long long int size() const;
     
     ///
-	/// \brief Renvoie le premier ÈlÈment de la pile
-	/// \return Le premier ÈlÈment de la pile
-	double peek() const;
-	
+	/// \brief Renvoie le dernier √©l√©ment de la pile
+	/// \return Le dernier √©l√©ment de la pile
+	double peekLast() const;
+
 	///
-	/// \brief Renvoie le dernier ÈlÈment de la pile et l'enlËve de celle-ci
-	/// \return Le dernier ÈlÈment de la pile
+	/// \brief Renvoie l'avant dernier √©l√©ment de la pile
+	/// \return L'avant dernier √©l√©ment de la pile
+	double peekBeforeLast() const;
+
+	///
+	/// \brief Renvoie le dernier √©l√©ment de la pile et l'enl√®ve de celle-ci
+	/// \return Le dernier √©l√©ment de la pile
 	double return_pop_back();
 	
 	///
-	/// \brief EnlËve le premier ÈlÈment de la pile
+	/// \brief Enl√®ve le premier √©l√©ment de la pile
 	void pop_back();
 	
 	///
-	/// \brief Ajoute l'ÈlÈment en paramËtre ‡ la pile
-	/// \param[in] val : Valeur ajoutÈe ‡ la pile
+	/// \brief Ajoute l'√©l√©ment en param√®tre √† la pile
+	/// \param[in] val : Valeur ajout√©e √† la pile
 	void push(const double& val);
 	
 	///
-	/// \brief Echange les deux derniers ÈlÈments de la pile
+	/// \brief Echange les deux derniers √©l√©ments de la pile
 	void swap();
 	
 	///
@@ -62,8 +67,8 @@ public:
 	void clear();
 	
 	///
-	/// \brief Renvoie les 5 derniers ÈlÈments de la pile
-	/// \return Les 5 derniers ÈlÈments de la pile s'ils existent, ceux qui existent sinon
+	/// \brief Renvoie les 5 derniers √©l√©ments de la pile
+	/// \return Les 5 derniers √©l√©ments de la pile s'ils existent, ceux qui existent sinon
 	std::vector<double> peekLast5() const;
 private:
 	// Private Declarations

@@ -3,13 +3,15 @@ project(Calculatrice-NPI)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SDL2_PATH "F:\\LibrairieGraphique\\SDL2-2.0.5\\i686-w64-mingw32")
+#set(CMAKE_MODULE_PATH /extLib/cmake)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${Calculatrice-NPI_SOURCE_DIR}/cmake")
+#set(SDL2_PATH extLib)
 
-set(SDL2_LIBRARY F:/LibrairieGraphique/SDL/lib/win32/SDL2.lib)
+#set(SDL2_DIR extLib/cmake)
 
-find_package(SDL2 REQUIRED)
+#include_directories(extLib/include)
+
+#find_package(SDL2 REQUIRED)
 
 
 set(SOURCE_FILES
@@ -41,14 +43,11 @@ set(SOURCE_FILES
         src/InterfaceConsole.h
         src/InterfaceGraphique.cpp
         src/InterfaceGraphique.h
-        )
+        src/OperatorUnaryChangeSign.cpp src/OperatorUnaryChangeSign.h)
 
 add_executable(Calculatrice-NPI ${SOURCE_FILES})
 
-include_directories(${SDL2_INCLUDE_DIR})
-
-target_link_libraries(Calculatrice-NPI ${SDL2_LIBRARY})
-
+#target_link_libraries(Calculatrice-NPI ${SDL2_LIBRARY})
 
 
 set(TEST_FILES test/catch.hpp

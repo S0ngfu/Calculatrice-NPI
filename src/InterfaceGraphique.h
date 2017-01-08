@@ -3,6 +3,7 @@
 
 #include "Interface.h"
 #include <iostream>
+//#include "SDL.h"
 
 class InterfaceGraphique: public Interface
 {
@@ -16,13 +17,13 @@ public:
     void initialize() override;
     
     ///
-	/// \brief S'occupe de l'input et l'envoie à la calculatrice
-	/// \return True si la calculatrice doit s'arrêter, False sinon
-    bool input() override;
+	/// \brief S'occupe de l'input et l'envoie Ã  la calculatrice
+	/// \return True si la calculatrice doit s'arrÃªter, False sinon
+    std::string input() override;
     
     
     ///
-	/// \brief Met à jour l'interface graphique
+	/// \brief Met Ã  jour l'interface graphique
     void updateOutput() override;
 };
 

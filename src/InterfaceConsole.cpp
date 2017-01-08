@@ -3,16 +3,23 @@
 void InterfaceConsole::run()
 {
     initialize();
-    while(!input())
+    std::string in;
+    in = input();
+    while(in != "quit") {
         updateOutput();
+        if(!in.empty())
+            std::cout<<"ERROR : "<<in<<std::endl;
+        in = input();
+    }
 }
 
 void InterfaceConsole::initialize()
 {
-    std::cout<<"Voici l'interface console de notre calculatrice"<<std::endl;
+    std::cout<<"Voici l'interface console de notre calculatrice\nEntrez h pour voir les commandes disponibles"<<std::endl;
+    //rajouter les raccourcis pour gérer calculatrice
 }
 
-bool InterfaceConsole::input()
+std::string InterfaceConsole::input()
 {
     std::string inputs;
     std::cin>>inputs;

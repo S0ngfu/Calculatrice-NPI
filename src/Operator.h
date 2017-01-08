@@ -4,7 +4,7 @@
 class Operator {
 public:
 	///
-	/// \brief Constructeur par défaut
+	/// \brief Constructeur par dÃ©faut
     virtual ~Operator() = default;
 };
 

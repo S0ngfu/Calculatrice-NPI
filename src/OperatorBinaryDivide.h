@@ -7,14 +7,14 @@ class OperatorBinaryDivide: public OperatorBinary
 {
 public:
 	///
-	/// \brief Constructeur par défaut
+	/// \brief Constructeur par dÃ©faut
     OperatorBinaryDivide() = default;
     
     ///
-	/// \brief Effectue une division entre deux paramètres
+	/// \brief Effectue une division entre deux paramÃ¨tres
 	/// \param[in] val1 : Dividende
 	/// \param[in] val2 : Diviseur
-	/// \return Le résultat de la division
+	/// \return Le rÃ©sultat de la division
     virtual double operate(double val1, double val2) override;
 };
 

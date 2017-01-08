@@ -6,13 +6,13 @@
 class OperatorUnarySquare: public OperatorUnary {
 public:
 	///
-	/// \brief Constructeur par défaut
+	/// \brief Constructeur par dÃ©faut
     OperatorUnarySquare() = default;
     
     ///
-	/// \brief Effectue une puissance deux sur un paramètre
-	/// \param[in] val1 : Valeur à mettre au carré
-	/// \return Le résultat du carré
+	/// \brief Effectue une puissance deux sur un paramÃ¨tre
+	/// \param[in] val1 : Valeur Ã  mettre au carrÃ©
+	/// \return Le rÃ©sultat du carrÃ©
     virtual double operate(double val) override;
 };
 
