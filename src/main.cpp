@@ -1,6 +1,6 @@
 #include "InterfaceConsole.h"
 #include "InterfaceGraphique.h"
-
+/*
 int main(int argc, char* argv[])
 {
     Interface* inter = new InterfaceConsole();
@@ -8,3 +8,4 @@ int main(int argc, char* argv[])
     inter->run();
     return 0;
 }
+*/
