@@ -3,8 +3,9 @@
 
 #include "Interface.h"
 #include <iostream>
+#include <SDL2/SDL.h>
 
-class InterfaceGraphique: public Interface
+class InterfaceGraphique: public Interface, public wxApp
 {
 public:
 	///
@@ -24,6 +25,8 @@ public:
     ///
 	/// \brief Met à jour l'interface graphique
     void updateOutput() override;
+private:
+	AffichageGraphique d_affCalc;
 };
 
 

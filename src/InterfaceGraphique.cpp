@@ -9,12 +9,12 @@ void InterfaceGraphique::run()
 
 void InterfaceGraphique::initialize()
 {
-
+	
 }
 
 bool InterfaceGraphique::input()
 {
-
+	
 }
 
 void InterfaceGraphique::updateOutput()

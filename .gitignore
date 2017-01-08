@@ -1,1 +1,8 @@
 *.o
+*.bmp
+monprojet/Calc.dev
+*.exe
+*.win
+monprojet/Calc.layout
+*.xpm
+monprojet/AffichageGraphique.wxform
