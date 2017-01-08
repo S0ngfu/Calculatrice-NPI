@@ -2,6 +2,7 @@
 
 #include "../src/Pile.h"
 #include "catch.hpp"
+#include <vector>
 
 void testAjoutValeur(const double &val,Pile &p)
 {
@@ -109,15 +110,45 @@ TEST_CASE("Tests sur une pile", "[pile]")
 		REQUIRE(p.return_pop_back() == troisiemeValeurPile);
 	}
 	
-	SECTION("Les 5 dernieres valeurs sont renvoyees correctement")
+	SECTION("Les 5 dernieres valeurs sont renvoyees correctement avec plus de 5 valeurs dans la pile")
 	{
+		std::vector<double> valeursPileAttendues;
+		std::vector<double> dernieresValeursPile;
+		
 		p.push(deuxiemeValeurPile);
 		p.push(troisiemeValeurPile);
 		
-		//
+		valeursPileAttendues.push_back(premiereValeurPile);
+		valeursPileAttendues.push_back(deuxiemeValeurPile);
+		valeursPileAttendues.push_back(troisiemeValeurPile);
+		
+		dernieresValeursPile=p.peekLast5();
+		
+		REQUIRE(dernieresValeursPile == valeursPileAttendues);
+		
+		
+	}
+	
+		SECTION("Les 5 dernieres valeurs sont renvoyees correctement avec plus de 5 valeurs dans la pile")
+	{
+		std::vector<double> valeursPileAttendues;
+		std::vector<double> dernieresValeursPile;
+		
+		p.push(deuxiemeValeurPile);
+		p.push(troisiemeValeurPile);
 		p.push(quatriemeValeurPile);
 		p.push(cinquiemeValeurPile);
 		p.push(sixiemeValeurPile);
+		
+		valeursPileAttendues.push_back(deuxiemeValeurPile);
+		valeursPileAttendues.push_back(troisiemeValeurPile);
+		valeursPileAttendues.push_back(quatriemeValeurPile);
+		valeursPileAttendues.push_back(cinquiemeValeurPile);
+		valeursPileAttendues.push_back(sixiemeValeurPile);
+		
+		dernieresValeursPile=p.peekLast5();
+		
+		REQUIRE(dernieresValeursPile == valeursPileAttendues);
 		
 	}
 }
