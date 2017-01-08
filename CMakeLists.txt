@@ -3,14 +3,15 @@ project(Calculatrice-NPI)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SDL2_PATH "F:\\LibrairieGraphique\\SDL2-2.0.5\\i686-w64-mingw32")
+#set(CMAKE_MODULE_PATH /extLib/cmake)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${Calculatrice-NPI_SOURCE_DIR}/cmake")
+#set(SDL2_PATH extLib)
 
-set(SDL2_LIBRARY F:/LibrairieGraphique/SDL/lib/win32/SDL2.lib)
+#set(SDL2_DIR extLib/cmake)
 
-find_package(SDL2 REQUIRED)
+#include_directories(extLib/include)
 
+#find_package(SDL2 REQUIRED)
 
 set(SOURCE_FILES
         src/main.cpp
@@ -41,16 +42,28 @@ set(SOURCE_FILES
         src/InterfaceConsole.h
         src/InterfaceGraphique.cpp
         src/InterfaceGraphique.h
-        )
+        src/OperatorUnaryChangeSign.cpp
+        src/OperatorUnaryChangeSign.h
+        src/OperatorUnaryCosinus.cpp
+        src/OperatorUnaryCosinus.h
+        src/OperatorUnarySinus.cpp
+        src/OperatorUnarySinus.h
+        src/OperatorUnaryTangente.cpp
+        src/OperatorUnaryTangente.h
+        src/OperatorUnaryExponential.cpp
+        src/OperatorUnaryExponential.h
+        src/OperatorUnaryNaturalLogarithm.cpp
+        src/OperatorUnaryNaturalLogarithm.h
+        src/OperatorUnaryDecimalLogarithm.cpp
+        src/OperatorUnaryDecimalLogarithm.h src/OperatorBinaryPow.cpp src/OperatorBinaryPow.h)
 
 add_executable(Calculatrice-NPI ${SOURCE_FILES})
 
-include_directories(${SDL2_INCLUDE_DIR})
-
-target_link_libraries(Calculatrice-NPI ${SDL2_LIBRARY})
-
+#target_link_libraries(Calculatrice-NPI ${SDL2_LIBRARY})
 
 
 set(TEST_FILES test/catch.hpp
-        test/TestPile.cpp)
+        test/TestPile.cpp
+        test/TestOperators.cpp)
+
 add_executable(TestCalc ${TEST_FILES})

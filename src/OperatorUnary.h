@@ -6,13 +6,13 @@
 class OperatorUnary: public Operator {
 public:
 	///
-	/// \brief Destructeur par défaut
+	/// \brief Destructeur par dÃ©faut
     virtual ~OperatorUnary() = default;
     
     ///
-	/// \brief Effectue une opération unaire
-	/// \param[in] val1 : Valeur subissant l'opération unaire
-	/// \return Le résultat de l'opération
+	/// \brief Effectue une opÃ©ration unaire
+	/// \param[in] val1 : Valeur subissant l'opÃ©ration unaire
+	/// \return Le rÃ©sultat de l'opÃ©ration
     virtual double operate(double val) =0;
 };
 

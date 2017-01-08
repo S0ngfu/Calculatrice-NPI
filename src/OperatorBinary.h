@@ -6,14 +6,14 @@
 class OperatorBinary: public Operator {
 public:
 	///
-	/// \brief Destructeur par défaut
+	/// \brief Destructeur par dÃ©faut
     virtual ~OperatorBinary() = default;
     
     ///
-	/// \brief Effectue l'opération binaire
-	/// \param[in] val1 : Valeur subissant l'opération binaire
-	/// \param[in] val2 : Valeur subissant l'opération binaire
-	/// \return Le résultat de l'opération binaire
+	/// \brief Effectue l'opÃ©ration binaire
+	/// \param[in] val1 : Valeur subissant l'opÃ©ration binaire
+	/// \param[in] val2 : Valeur subissant l'opÃ©ration binaire
+	/// \return Le rÃ©sultat de l'opÃ©ration binaire
     virtual double operate(double val1, double val2) =0;
 };
 

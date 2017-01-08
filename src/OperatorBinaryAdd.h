@@ -7,14 +7,14 @@ class OperatorBinaryAdd: public OperatorBinary
 {
 public:
 	///
-	/// \brief Constructeur par défaut
+	/// \brief Constructeur par dÃ©faut
     OperatorBinaryAdd() = default;
     
     ///
-	/// \brief Effectue une addition entre deux paramètres
-	/// \param[in] val1 : Valeur à ajouter
-	/// \param[in] val2 : Valeur ajoutée
-	/// \return Le résultat de l'addition
+	/// \brief Effectue une addition entre deux paramÃ¨tres
+	/// \param[in] val1 : Valeur Ã  ajouter
+	/// \param[in] val2 : Valeur ajoutÃ©e
+	/// \return Le rÃ©sultat de l'addition
     virtual double operate(double val1, double val2) override;
 };
 

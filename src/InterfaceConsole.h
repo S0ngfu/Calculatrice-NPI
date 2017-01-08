@@ -17,12 +17,12 @@ public:
     void initialize() override;
     
     ///
-	/// \brief Reçoit une chaine de caractère et l'envoie à la calculatrice qui la gère
-	/// \return True si la calculatrice doit s'arrêter, False sinon
-    bool input() override;
+	/// \brief ReÃ§oit une chaine de caractÃ¨re et l'envoie Ã  la calculatrice qui la gÃ¨re
+	/// \return True si la calculatrice doit s'arrÃªter, False sinon
+    std::string input() override;
     
     ///
-	/// \brief Affiche les cinq derniers éléments de la pile
+	/// \brief Affiche les cinq derniers Ã©lÃ©ments de la pile
     void updateOutput() override;
 };
 

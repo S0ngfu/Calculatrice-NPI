@@ -18,13 +18,12 @@ public:
     virtual void initialize()=0;
     
     ///
-	/// \brief S'occupe de l'input et l'envoie à la calculatrice
-	/// \return True si la calculatrice doit s'arrêter, False sinon
-    virtual bool input()=0;
-    
-    
+	/// \brief S'occupe de l'input et l'envoie Ã  la calculatrice
+	/// \return True si la calculatrice doit s'arrÃªter, False sinon
+    virtual std::string input()=0;
+
     ///
-	/// \brief Met à jour l'interface
+	/// \brief Met Ã  jour l'interface
     virtual void updateOutput()=0;
     
     Calculatrice d_calc;
