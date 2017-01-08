@@ -7,6 +7,12 @@
 #include "../src/OperatorBinaryMultiply.h"
 #include "../src/OperatorUnarySquareRoot.h"
 #include "../src/OperatorUnaryChangeSign.h"
+#include "../src/OperatorUnaryCosinus.h"
+#include "../src/OperatorUnaryNaturalLogarithm.h"
+#include "../src/OperatorUnaryDecimalLogarithm.h"
+#include "../src/OperatorUnaryExponential.h"
+#include "../src/OperatorUnarySinus.h"
+#include "../src/OperatorUnaryTangente.h"
 #include "catch.hpp"
 
 void testOpereratorBinaryAdd(bool val1, bool val2)
@@ -160,6 +166,7 @@ TEST_CASE("Tests sur les operateurs unaires", "[OperatorUnary]")
 	double resultatOperation;
 	double resultatAttendu;
 	
+	//Test des opérations de carré
 	SECTION("Une operation unaire de carre renvoie une valeur correcte avec valeur positive")
 	{
 		operationUn = new OperatorUnarySquare();
@@ -178,6 +185,7 @@ TEST_CASE("Tests sur les operateurs unaires", "[OperatorUnary]")
 		REQUIRE(resultatAttendu == resultatOperation);
 	}
 	
+	//Test des opérations de racine carré
 	SECTION("Une operation unaire de racine carree renvoie une valeur correcte avec valeur positive")
 	{
 		operationUn = new OperatorUnarySquareRoot();
@@ -196,6 +204,7 @@ TEST_CASE("Tests sur les operateurs unaires", "[OperatorUnary]")
 		REQUIRE(resultatAttendu == resultatOperation);
 	}
 	
+	//Test des opérations de changement de signe
 	SECTION("Une operation unaire de changement de signe renvoie une valeur correcte avec valeur positive")
 	{
 		operationUn = new OperatorUnaryChangeSign();
@@ -213,5 +222,103 @@ TEST_CASE("Tests sur les operateurs unaires", "[OperatorUnary]")
 		resultatOperation = operationUn->operate(moinsValeurUn);	
 		REQUIRE(resultatAttendu == resultatOperation);
 	}
+	
+	//Test des opérations de cosinus	
+	SECTION("Une operation unaire de cosinus renvoie une valeur correcte avec valeur positive")
+	{
+		operationUn = new OperatorUnaryCosinus();
+		resultatAttendu = cos(valeurUn);
+		
+		resultatOperation = operationUn->operate(valeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	SECTION("Une operation unaire de cosinus de signe renvoie une valeur correcte avec valeur negative")
+	{
+		operationUn = new OperatorUnaryCosinus();
+		resultatAttendu = cos(moinsValeurUn);
+		
+		resultatOperation = operationUn->operate(moinsValeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	//Test des opérations de logarithme	
+	SECTION("Une operation unaire de logarithme renvoie une valeur correcte")
+	{
+		operationUn = new OperatorUnaryNaturalLogarithm();
+		resultatAttendu = log(valeurUn);
+		
+		resultatOperation = operationUn->operate(valeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	//Test des opérations de logarithme	decimal
+	SECTION("Une operation unaire de logarithme decimal renvoie une valeur correcte")
+	{
+		operationUn = new OperatorUnaryDecimalLogarithm();
+		resultatAttendu = log10(valeurUn);
+		
+		resultatOperation = operationUn->operate(valeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	//Test des opérations d'exponentielle	
+	SECTION("Une operation unaire d'exponentielle renvoie une valeur correcte avec valeur positive")
+	{
+		operationUn = new OperatorUnaryExponential();
+		resultatAttendu = exp(valeurUn);
+		
+		resultatOperation = operationUn->operate(valeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	SECTION("Une operation unaire d'exponentielle de signe renvoie une valeur correcte avec valeur negative")
+	{
+		operationUn = new OperatorUnaryExponential();
+		resultatAttendu = exp(moinsValeurUn);
+		
+		resultatOperation = operationUn->operate(moinsValeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	//Test des opérations de sinus	
+	SECTION("Une operation unaire de sinus renvoie une valeur correcte avec valeur positive")
+	{
+		operationUn = new OperatorUnarySinus();
+		resultatAttendu = sin(valeurUn);
+		
+		resultatOperation = operationUn->operate(valeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	SECTION("Une operation unaire de sinus de signe renvoie une valeur correcte avec valeur negative")
+	{
+		operationUn = new OperatorUnarySinus();
+		resultatAttendu = sin(moinsValeurUn);
+		
+		resultatOperation = operationUn->operate(moinsValeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	//Test des opérations de tangente	
+	SECTION("Une operation unaire de tangente renvoie une valeur correcte avec valeur positive")
+	{
+		operationUn = new OperatorUnaryTangente();
+		resultatAttendu = tan(valeurUn);
+		
+		resultatOperation = operationUn->operate(valeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	SECTION("Une operation unaire de tangente de signe renvoie une valeur correcte avec valeur negative")
+	{
+		operationUn = new OperatorUnaryTangente();
+		resultatAttendu = tan(moinsValeurUn);
+		
+		resultatOperation = operationUn->operate(moinsValeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+
 	
 }
