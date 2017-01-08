@@ -6,6 +6,12 @@
 #include "OperatorBinaryMultiply.h"
 #include "OperatorUnarySquareRoot.h"
 #include "OperatorUnaryChangeSign.h"
+#include "OperatorUnaryCosinus.h"
+#include "OperatorUnarySinus.h"
+#include "OperatorUnaryTangente.h"
+#include "OperatorUnaryExponential.h"
+#include "OperatorUnaryNaturalLogarithm.h"
+#include "OperatorUnaryDecimalLogarithm.h"
 
 #include <iostream>
 
@@ -40,7 +46,7 @@ std::string Calculatrice::operateChoice(const std::string &operateur)
                 operationBin = new OperatorBinaryDivide();
                 addOperate(operationBin);
             } else
-                return "Division par 0";
+                return "Erreur : division par 0";
             break;
         case 's':
             operationUn = new OperatorUnarySquare();
@@ -51,7 +57,7 @@ std::string Calculatrice::operateChoice(const std::string &operateur)
                 operationUn = new OperatorUnarySquareRoot();
                 addOperate(operationUn);
             } else
-                return "Racine carré d'un nombre négatif";
+                return "Erreur : racine carre d'un nombre negatif";
             break;
         case 'w':
             d_pile.swap();
@@ -63,8 +69,32 @@ std::string Calculatrice::operateChoice(const std::string &operateur)
             operationUn = new OperatorUnaryChangeSign();
             addOperate(operationUn);
             break;
+        case 'c':
+            operationUn = new OperatorUnaryCosinus();
+            addOperate(operationUn);
+            break;
+        case 'u':
+            operationUn = new OperatorUnarySinus();
+            addOperate(operationUn);
+            break;
+        case 't':
+            operationUn = new OperatorUnaryTangente();
+            addOperate(operationUn);
+            break;
+        case 'e':
+            operationUn = new OperatorUnaryExponential();
+            addOperate(operationUn);
+            break;
+        case 'n':
+            operationUn = new OperatorUnaryNaturalLogarithm();
+            addOperate(operationUn);
+            break;
+        case 'o':
+            operationUn = new OperatorUnaryDecimalLogarithm();
+            addOperate(operationUn);
+            break;
         case 'h':
-            return "+ : Addition\n- : Soustraction\n* : Multiplication\n/ : Division\ns : Carré";
+            return "+ : Addition\n- : Soustraction\n* : Multiplication\n/ : Division\ns : Mettre au carre\nr : Mettre a la racine carre\nw : Echange les deux dernieres valeurs\nd : Retire la derniere valeur\ni : Change le signe de la derniere valeur\nc : Compose par cosinus\nu : Compose par sinus\nt : Compose par tangente\ne : Compose par exponentielle\nn : Compose par logarithme neperien\no : Compose par logarithme decimal";
         case 'q':
             return "quit";
         default:

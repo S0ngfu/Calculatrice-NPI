@@ -43,7 +43,7 @@ set(SOURCE_FILES
         src/InterfaceConsole.h
         src/InterfaceGraphique.cpp
         src/InterfaceGraphique.h
-        src/OperatorUnaryChangeSign.cpp src/OperatorUnaryChangeSign.h)
+        src/OperatorUnaryChangeSign.cpp src/OperatorUnaryChangeSign.h src/OperatorUnaryCosinus.cpp src/OperatorUnaryCosinus.h src/OperatorUnarySinus.cpp src/OperatorUnarySinus.h src/OperatorUnaryTangente.cpp src/OperatorUnaryTangente.h src/OperatorUnaryExponential.cpp src/OperatorUnaryExponential.h src/OperatorUnaryNaturalLogarithm.cpp src/OperatorUnaryNaturalLogarithm.h src/OperatorUnaryDecimalLogarithm.cpp src/OperatorUnaryDecimalLogarithm.h)
 
 add_executable(Calculatrice-NPI ${SOURCE_FILES})
 

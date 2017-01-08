@@ -8,7 +8,7 @@ void InterfaceConsole::run()
     while(in != "quit") {
         updateOutput();
         if(!in.empty())
-            std::cout<<"ERROR : "<<in<<std::endl;
+            std::cout<<in<<std::endl;
         in = input();
     }
 }
