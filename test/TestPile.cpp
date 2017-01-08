@@ -4,39 +4,77 @@
 #include "catch.hpp"
 
 
-TEST_CASE("Pile", "[pile]")
+void testAjoutValeur(const double &val,Pile &p)
 {
-    //A OPTI, possibilitÃ© de bien mieux faire.
-    Pile test;
-    SECTION("Pile vide")
-    {
-        REQUIRE(test.empty());
-        test.push(4.21);
-        REQUIRE(test.peek() == 4.21);
-        REQUIRE(!test.empty());
-        REQUIRE(test.size() == 1);
-    }
+	int nouvelleTaillePile = p.size();
+	p.push(val);
+	nouvelleTaillePile += 1;
+	REQUIRE(p.size() == nouvelleTaillePile);
+	REQUIRE(p.peek() == val);
+}
 
-    Pile test2(5.23);
-    SECTION("Pile non vide")
-    {
-        REQUIRE(test2.peek() == 5.23);
-        REQUIRE(!test2.empty());
-        REQUIRE(test2.size() == 1);
+bool pileEstVide(Pile &p)
+{
+	return p.size()==0 && p.empty();
+}
 
-        test2.push(4.21);
-        REQUIRE(test2.peek() == 4.21);
-        REQUIRE(test2.size() == 2);
-
-        test2.swap();
-        REQUIRE(test2.peek() == 5.23);
-        REQUIRE(test2.size() == 2);
-
-        double temp= test2.return_pop_back();
-        REQUIRE(temp == 5.23);
-        REQUIRE(test2.size() == 1);
-
-        test2.clear();
-        REQUIRE(test2.empty());
-    }
+TEST_CASE("Tests sur une pile", "[pile]")
+{
+	double valeurInitiale = 0.0;
+	double premiereValeurPile = 10.5;
+	double deuxiemeValeurPile = 5.3;
+	double troisiemeValeurPile = 20.1;
+	Pile p{};
+	
+	SECTION("Pile par défaut correctement créée")
+	{
+		Pile p1{};
+		REQUIRE(p1.peek()==valeurInitiale);
+		REQUIRE(p1.size()==1);
+	}
+	SECTION("Pile avec paramètre correctement créée")
+	{
+		Pile p1{premiereValeurPile};
+		REQUIRE(p1.peek()==premiereValeurPile);
+		REQUIRE(p1.size()==1);
+	}
+	
+	p.push(premiereValeurPile);
+	
+	SECTION("Une pile vide est bien vide")
+	{		
+		testAjoutValeur(deuxiemeValeurPile,p);
+		testAjoutValeur(troisiemeValeurPile,p);
+		
+		REQUIRE_FALSE(pileEstVide(p));
+		
+		while(p.size() != 0)
+		{
+			p.pop_back();
+		}
+		
+		REQUIRE(pileEstVide(p));
+		
+		testAjoutValeur(deuxiemeValeurPile,p);
+		testAjoutValeur(troisiemeValeurPile,p);
+		p.clear();
+		
+		REQUIRE(pileEstVide(p));
+	}
+	
+	SECTION("Une valeur est correctement ajoutée à la pile")
+	{	 
+		testAjoutValeur(deuxiemeValeurPile,p);
+		testAjoutValeur(troisiemeValeurPile,p);		
+	}
+	
+	SECTION("Une valeur est correctement retirée à la pile")
+	{
+		
+	}
+	
+	
+	
+	
+	
 }
