@@ -15,7 +15,7 @@ void InterfaceConsole::run()
 
 void InterfaceConsole::initialize()
 {
-    std::cout<<"Voici l'interface console de notre calculatrice\nEntrez h pour voir les commandes disponibles"<<std::endl;
+    std::cout<<"Voici l'interface console de notre calculatrice\nEntrez h pour voir les commandes disponibles\nPour utiliser la calculatrice, rentrez chaque commande avec un espace entre. (Ex : x y op z op)"<<std::endl;
 }
 
 std::string InterfaceConsole::input()

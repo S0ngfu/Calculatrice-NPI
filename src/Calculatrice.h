@@ -43,7 +43,7 @@ public:
 
     ///
     /// \brief Permet de voir les valeurs sauvegardés
-    void showSavedValue();
+    void showSavedValue() const;
 
     ///
     /// \brief Permet de récupérer une valeur sauvegarder dans la pile
@@ -55,12 +55,21 @@ public:
     void saveCommand();
 
     ///
+    /// \brief Permet de voir les listes de commandes sauvegardés
+    void showSavedCommand() const;
+
+    ///
     /// \brief Permet d'éxécuter la liste de commande
     void executeSavedCommand();
+
+    ///
+    /// \brief Permet de supprimer une liste de commandes
+    void deleteOneCommand();
+
 private:
     Pile d_pile;
     std::vector<double> d_saveValue;
-    std::string d_saveCommand;
+    std::vector<std::string> d_saveCommand;
 };
 
 #endif //CALCULATRICE_NPI_CALCULATRICE_H

@@ -114,8 +114,11 @@ std::string Calculatrice::operateChoice(const char &operateur)
         case 'x':
             executeSavedCommand();
             break;
+        case 'b':
+            deleteOneCommand();
+            break;
         case 'h':
-            return "+ : Addition\n- : Soustraction\n* : Multiplication\n/ : Division\ns : Mettre au carre\nr : Mettre a la racine carre\nw : Echange les deux dernieres valeurs\nd : Retire la derniere valeur\ni : Change le signe de la derniere valeur\nc : Compose par cosinus\nu : Compose par sinus\nt : Compose par tangente\ne : Compose par exponentielle\nn : Compose par logarithme neperien\no : Compose par logarithme decimal\np : Effectue x puissance y\na : Sauve la derniere valeur\ng : Permet de recuperer une valeur sauvegarder\nv : Permet de sauver une liste de commande\nx : Permet d'executer la liste de commande";
+            return "q : permet d'arrêter la calculatrice\n+ : Addition\n- : Soustraction\n* : Multiplication\n/ : Division\ns : Mettre au carre\nr : Mettre a la racine carre\nw : Echange les deux dernieres valeurs\nd : Retire la derniere valeur\ni : Change le signe de la derniere valeur\nc : Compose par cosinus\nu : Compose par sinus\nt : Compose par tangente\ne : Compose par exponentielle\nn : Compose par logarithme neperien\no : Compose par logarithme decimal\np : Effectue x puissance y\na : Sauve la derniere valeur\ng : Permet de recuperer une valeur sauvegarder\nv : Permet de sauver une liste de commande\nx : Permet d'executer la liste de commande\nb : Permet de supprimer une liste de commandes";
         case 'q':
             return "quit";
         default:
@@ -157,13 +160,13 @@ Pile Calculatrice::getPile()
     return d_pile;
 }
 
-void Calculatrice::showSavedValue()
+void Calculatrice::showSavedValue() const
 {
     for(int i = 0 ; i < d_saveValue.size() ; i++)
     {
         std::cout<<i+1<<" : "<<d_saveValue[i]<<std::endl;
     }
-    std::cout<<"Rentrez l'index de la valeur à remettre dans la pile"<<std::endl;
+    std::cout<<"Rentrez l'index de la valeur a remettre dans la pile"<<std::endl;
 }
 
 void Calculatrice::putSavedValueInPile() {
@@ -180,28 +183,60 @@ void Calculatrice::putSavedValueInPile() {
 void Calculatrice::saveCommand()
 {
     std::cout<<"Continue de sauvegarder la liste de commande tant qu'il n'y a pas de q"<<std::endl;
-    d_saveCommand = "";
+    std::string temp = "";
     std::string input;
+    std::cin>>input;
     do
     {
+        temp += input + " ";
         std::cin>>input;
-        d_saveCommand += input + " ";
     } while(input.front() != 'q');
+    d_saveCommand.push_back(temp);
+}
+
+void Calculatrice::showSavedCommand() const
+{
+    for(int i = 0 ; i < d_saveCommand.size() ; i++)
+    {
+        std::cout<<i+1<<" : "<<d_saveCommand[i]<<std::endl;
+    }
+    std::cout<<"Rentrez l'index de la liste de commande a executer ou supprimer"<<std::endl;
 }
 
 void Calculatrice::executeSavedCommand()
 {
-    if(!d_saveCommand.empty())
-    {
-        std::string substring, temp = d_saveCommand;
+    if(!d_saveCommand.empty()) {
+        showSavedCommand();
+        int index;
+        do {
+            std::cin >> index;
+        } while (index < 1 && index > d_saveCommand.size() + 1);
+
+        std::string substring, temp = d_saveCommand[index - 1];
         size_t pos = 0, len = 0;
-        while(!temp.empty())
-        {
+        while (!temp.empty()) {
             len = temp.find(" ");
             substring = temp.substr(pos, len);
             input(substring);
-            temp.erase(pos, len+1);
+            temp.erase(pos, len + 1);
         }
-    }
+    } else
+        std::cout<<"Aucune liste de commandes sauvee"<<std::endl;
+}
+
+void Calculatrice::deleteOneCommand()
+{
+    if(!d_saveCommand.empty())
+    {
+        showSavedCommand();
+        int index;
+        do
+        {
+            std::cin>>index;
+        } while(index < 1 && index > d_saveCommand.size()+1);
+        d_saveCommand[index-1] = d_saveCommand[d_saveCommand.size()-1];
+        d_saveCommand.pop_back();
+    } else
+        std::cout<<"Aucune liste de commandes sauvee"<<std::endl;
 }
 
