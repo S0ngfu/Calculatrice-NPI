@@ -16,7 +16,6 @@ void InterfaceConsole::run()
 void InterfaceConsole::initialize()
 {
     std::cout<<"Voici l'interface console de notre calculatrice\nEntrez h pour voir les commandes disponibles"<<std::endl;
-    //rajouter les raccourcis pour gérer calculatrice
 }
 
 std::string InterfaceConsole::input()

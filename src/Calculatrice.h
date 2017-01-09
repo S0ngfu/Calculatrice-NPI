@@ -24,7 +24,7 @@ public:
     /// \brief Fais un choix en fonction du caractère entré et envoie vers l'opérateur
     /// \param[in] operateur : Caractère entré
     /// \return
-    std::string operateChoice(const std::string &operateur);
+    std::string operateChoice(const char &operateur);
     
     ///
     /// \brief Appelle l'opérateur binaire correspondant
@@ -41,8 +41,26 @@ public:
     /// \return d_pile La pile
     Pile getPile();
 
+    ///
+    /// \brief Permet de voir les valeurs sauvegardés
+    void showSavedValue();
+
+    ///
+    /// \brief Permet de récupérer une valeur sauvegarder dans la pile
+    /// \param index : Position de la valeur sauvegarder
+    void putSavedValueInPile();
+
+    ///
+    /// \brief Permet de sauvegarder une liste de commande
+    void saveCommand();
+
+    ///
+    /// \brief Permet d'éxécuter la liste de commande
+    void executeSavedCommand();
 private:
     Pile d_pile;
+    std::vector<double> d_saveValue;
+    std::string d_saveCommand;
 };
 
 #endif //CALCULATRICE_NPI_CALCULATRICE_H

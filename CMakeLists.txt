@@ -40,8 +40,8 @@ set(SOURCE_FILES
         src/Interface.h
         src/InterfaceConsole.cpp
         src/InterfaceConsole.h
-        src/InterfaceGraphique.cpp
-        src/InterfaceGraphique.h
+        #src/InterfaceGraphique.cpp
+        #src/InterfaceGraphique.h
         src/OperatorUnaryChangeSign.cpp
         src/OperatorUnaryChangeSign.h
         src/OperatorUnaryCosinus.cpp

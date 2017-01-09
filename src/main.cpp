@@ -1,5 +1,5 @@
 #include "InterfaceConsole.h"
-#include "InterfaceGraphique.h"
+//#include "InterfaceGraphique.h"
 
 int main(int argc, char* argv[])
 {
