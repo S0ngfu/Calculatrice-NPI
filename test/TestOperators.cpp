@@ -15,7 +15,7 @@
 #include "../src/OperatorUnaryTangente.h"
 #include "catch.hpp"
 
-void testOpereratorBinaryAdd(double val1, double val2)
+void testOperatorBinaryAdd(double val1, double val2)
 {
 	double resultatAttendu;
 	double resultatOperation;
@@ -30,7 +30,7 @@ void testOpereratorBinaryAdd(double val1, double val2)
 	delete operationBin;
 }
 
-void testOpereratorBinaryDivide(double val1, double val2)
+void testOperatorBinaryDivide(double val1, double val2)
 {
 	double resultatAttendu;
 	double resultatOperation;
@@ -45,7 +45,7 @@ void testOpereratorBinaryDivide(double val1, double val2)
 	delete operationBin;
 }
 
-void testOpereratorBinaryMultiply(double val1, double val2)
+void testOperatorBinaryMultiply(double val1, double val2)
 {
 	double resultatAttendu;
 	double resultatOperation;
@@ -60,7 +60,7 @@ void testOpereratorBinaryMultiply(double val1, double val2)
 	delete operationBin;
 }
 
-void testOpereratorBinarySubtract(double val1, double val2)
+void testOperatorBinarySubtract(double val1, double val2)
 {
 	double resultatAttendu;
 	double resultatOperation;
@@ -85,76 +85,76 @@ TEST_CASE("Tests sur les operateurs binaires", "[OperatorBinary]")
 	//Test des opérations d'addition
 	SECTION("Une operation binaire d'ajout renvoie une valeur correcte avec deux valeurs positives")
 	{
-		testOpereratorBinaryAdd(valeurUn,valeurDeux);
-		testOpereratorBinaryAdd(valeurDeux,valeurUn);
+		testOperatorBinaryAdd(valeurUn,valeurDeux);
+		testOperatorBinaryAdd(valeurDeux,valeurUn);
 	}
 	
 	SECTION("Une operation binaire d'ajout renvoie une valeur correcte avec deux valeurs negatives")
 	{
-		testOpereratorBinaryAdd(moinsValeurUn,moinsValeurDeux);
-		testOpereratorBinaryAdd(moinsValeurDeux,moinsValeurUn);
+		testOperatorBinaryAdd(moinsValeurUn,moinsValeurDeux);
+		testOperatorBinaryAdd(moinsValeurDeux,moinsValeurUn);
 	}
 	
 	SECTION("Une operation binaire d'ajout renvoie une valeur correcte avec une valeur negative et une valeur positive")
 	{
-		testOpereratorBinaryAdd(valeurUn,moinsValeurDeux);
-		testOpereratorBinaryAdd(moinsValeurUn,valeurDeux);
+		testOperatorBinaryAdd(valeurUn,moinsValeurDeux);
+		testOperatorBinaryAdd(moinsValeurUn,valeurDeux);
 	}
 	
 	//Test des opérations de division
 	SECTION("Une operation binaire de division renvoie une valeur correcte avec deux valeurs positives")
 	{
-		testOpereratorBinaryDivide(valeurUn,valeurDeux);
-		testOpereratorBinaryDivide(valeurDeux,valeurUn);
+		testOperatorBinaryDivide(valeurUn,valeurDeux);
+		testOperatorBinaryDivide(valeurDeux,valeurUn);
 	}
 	
 	SECTION("Une operation binaire de division renvoie une valeur correcte avec deux valeurs negatives")
 	{
-		testOpereratorBinaryDivide(moinsValeurUn,moinsValeurDeux);
-		testOpereratorBinaryDivide(moinsValeurDeux,moinsValeurUn);
+		testOperatorBinaryDivide(moinsValeurUn,moinsValeurDeux);
+		testOperatorBinaryDivide(moinsValeurDeux,moinsValeurUn);
 	}
 	
 	SECTION("Une operation binaire de division renvoie une valeur correcte avec une valeur negative et une valeur positive")
 	{
-		testOpereratorBinaryDivide(valeurUn,moinsValeurDeux);
-		testOpereratorBinaryDivide(moinsValeurUn,valeurDeux);
+		testOperatorBinaryDivide(valeurUn,moinsValeurDeux);
+		testOperatorBinaryDivide(moinsValeurUn,valeurDeux);
 	}
 	
 	//Test des opérations de multiplication
 	SECTION("Une operation binaire de multiplication renvoie une valeur correcte avec deux valeurs positives")
 	{
-		testOpereratorBinaryMultiply(valeurUn,valeurDeux);
-		testOpereratorBinaryMultiply(valeurDeux,valeurUn);
+		testOperatorBinaryMultiply(valeurUn,valeurDeux);
+		testOperatorBinaryMultiply(valeurDeux,valeurUn);
 	}
 	
 	SECTION("Une operation binaire de multiplication renvoie une valeur correcte avec deux valeurs negatives")
 	{
-		testOpereratorBinaryMultiply(moinsValeurUn,moinsValeurDeux);
-		testOpereratorBinaryMultiplymoinsValeurDeux,moinsValeurUn);
+		testOperatorBinaryMultiply(moinsValeurUn,moinsValeurDeux);
+		testOperatorBinaryMultiply(moinsValeurDeux,moinsValeurUn);
 	}
 	
 	SECTION("Une operation binaire de multiplication renvoie une valeur correcte avec une valeur negative et une valeur positive")
 	{
-		testOpereratorBinaryMultiply(valeurUn,moinsValeurDeux);
-		testOpereratorBinaryMultiply(moinsValeurUn,valeurDeux);
+		testOperatorBinaryMultiply(valeurUn,moinsValeurDeux);
+		testOperatorBinaryMultiply(moinsValeurUn,valeurDeux);
 	}
 	
 	//Test des opérations de soustraction
 	SECTION("Une operation binaire de soustraction renvoie une valeur correcte avec deux valeurs positives")
 	{
-		testOpereratorBinarySubtract(valeurUn,moinsValeurDeux);
-		testOpereratorBinarySubtract(moinsValeurUn,valeurDeux);
+		testOperatorBinarySubtract(valeurUn,moinsValeurDeux);
+		testOperatorBinarySubtract(moinsValeurUn,valeurDeux);
 	}
 	SECTION("Une operation binaire de soustraction renvoie une valeur correcte avec deux valeurs negatives")
 	{
-		testOpereratorBinarySubtract(moinsValeurUn,moinsValeurDeux);
-		testOpereratorBinarySubtract(moinsValeurDeux,moinsValeurUn);
+		testOperatorBinarySubtract(moinsValeurUn,moinsValeurDeux);
+		testOperatorBinarySubtract(moinsValeurDeux,moinsValeurUn);
 	}
 	
 	SECTION("Une operation binaire de soustraction renvoie une valeur correcte avec une valeur negative et une valeur positive")
 	{
-		testOpereratorBinarySubtract(valeurUn,moinsValeurDeux);
-		testOpereratorBinarySubtract(moinsValeurUn,valeurDeux);
+		testOperatorBinarySubtract(valeurUn,moinsValeurDeux);
+		testOperatorBinarySubtract(moinsValeurUn,valeurDeux);
 	}
 }
 
@@ -167,12 +167,21 @@ TEST_CASE("Tests sur les operateurs unaires", "[OperatorUnary]")
 	double resultatAttendu;
 	
 	//Test des opérations de carré
-	SECTION("Une operation unaire de carre renvoie une valeur correcte")
+	SECTION("Une operation unaire de carre renvoie une valeur correcte avec valeur positive")
 	{
 		operationUn = new OperatorUnarySquare();
 		resultatAttendu = pow(valeurUn,2);
 		
 		resultatOperation = operationUn->operate(valeurUn);	
+		REQUIRE(resultatAttendu == resultatOperation);
+	}
+	
+	SECTION("Une operation unaire de carre renvoie une valeur correcte  avec valeur negative")
+	{
+		operationUn = new OperatorUnarySquare();
+		resultatAttendu = pow(moinsValeurUn,2);
+		
+		resultatOperation = operationUn->operate(moinsValeurUn);	
 		REQUIRE(resultatAttendu == resultatOperation);
 	}
 	
@@ -183,15 +192,6 @@ TEST_CASE("Tests sur les operateurs unaires", "[OperatorUnary]")
 		resultatAttendu = sqrt(valeurUn);
 		
 		resultatOperation = operationUn->operate(valeurUn);	
-		REQUIRE(resultatAttendu == resultatOperation);
-	}
-	
-	SECTION("Une operation unaire de racine carree renvoie une valeur correcte avec valeur negative")
-	{
-		operationUn = new OperatorUnarySquareRoot();
-		resultatAttendu = sqrt(moinsValeurUn);
-		
-		resultatOperation = operationUn->operate(moinsValeurUn);	
 		REQUIRE(resultatAttendu == resultatOperation);
 	}
 	
