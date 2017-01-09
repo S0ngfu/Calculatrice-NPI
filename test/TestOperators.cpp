@@ -123,20 +123,20 @@ TEST_CASE("Tests sur les operateurs binaires", "[OperatorBinary]")
 	//Test des opérations de multiplication
 	SECTION("Une operation binaire de multiplication renvoie une valeur correcte avec deux valeurs positives")
 	{
-		testOpereratorBinaryDivide(valeurUn,valeurDeux);
-		testOpereratorBinaryDivide(valeurDeux,valeurUn);
+		testOpereratorBinaryMultiply(valeurUn,valeurDeux);
+		testOpereratorBinaryMultiply(valeurDeux,valeurUn);
 	}
 	
 	SECTION("Une operation binaire de multiplication renvoie une valeur correcte avec deux valeurs negatives")
 	{
-		testOpereratorBinaryDivide(moinsValeurUn,moinsValeurDeux);
-		testOpereratorBinaryDivide(moinsValeurDeux,moinsValeurUn);
+		testOpereratorBinaryMultiply(moinsValeurUn,moinsValeurDeux);
+		testOpereratorBinaryMultiplymoinsValeurDeux,moinsValeurUn);
 	}
 	
 	SECTION("Une operation binaire de multiplication renvoie une valeur correcte avec une valeur negative et une valeur positive")
 	{
-		testOpereratorBinaryDivide(valeurUn,moinsValeurDeux);
-		testOpereratorBinaryDivide(moinsValeurUn,valeurDeux);
+		testOpereratorBinaryMultiply(valeurUn,moinsValeurDeux);
+		testOpereratorBinaryMultiply(moinsValeurUn,valeurDeux);
 	}
 	
 	//Test des opérations de soustraction
