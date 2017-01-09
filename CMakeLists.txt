@@ -14,7 +14,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 #find_package(SDL2 REQUIRED)
 
 set(SOURCE_FILES
-        src/main.cpp
+        #src/main.cpp
         src/Calculatrice.h
         src/Calculatrice.cpp
         src/Pile.h
@@ -57,7 +57,7 @@ set(SOURCE_FILES
         src/OperatorUnaryDecimalLogarithm.cpp
         src/OperatorUnaryDecimalLogarithm.h src/OperatorBinaryPow.cpp src/OperatorBinaryPow.h)
 
-add_executable(Calculatrice-NPI ${SOURCE_FILES})
+add_executable(Calculatrice-NPI src/main.cpp ${SOURCE_FILES})
 
 #target_link_libraries(Calculatrice-NPI ${SDL2_LIBRARY})
 
@@ -66,4 +66,4 @@ set(TEST_FILES test/catch.hpp
         test/TestPile.cpp
         test/TestOperators.cpp)
 
-add_executable(TestCalc ${TEST_FILES})
+add_executable(TestCalc ${SOURCE_FILES} ${TEST_FILES})
