@@ -174,7 +174,7 @@ void Calculatrice::putSavedValueInPile() {
     do
     {
         std::cin>>index;
-    } while(index < 1 && index > d_saveValue.size());
+    } while(index < 1 || index > d_saveValue.size());
     d_pile.push(d_saveValue[index-1]);
     d_saveValue[index-1] = d_saveValue[d_saveValue.size()-1];
     d_saveValue.pop_back();
@@ -210,7 +210,7 @@ void Calculatrice::executeSavedCommand()
         int index;
         do {
             std::cin >> index;
-        } while (index < 1 && index > d_saveCommand.size());
+        } while (index < 1 || index > d_saveCommand.size());
 
         std::string substring, temp = d_saveCommand[index - 1];
         size_t pos = 0, len = 0;
@@ -233,7 +233,7 @@ void Calculatrice::deleteOneCommand()
         do
         {
             std::cin>>index;
-        } while(index < 1 && index > d_saveCommand.size());
+        } while(index < 1 || index > d_saveCommand.size());
         d_saveCommand[index-1] = d_saveCommand[d_saveCommand.size()-1];
         d_saveCommand.pop_back();
     } else
