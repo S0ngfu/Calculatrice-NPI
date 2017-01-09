@@ -15,7 +15,7 @@
 #include "../src/OperatorUnaryTangente.h"
 #include "catch.hpp"
 
-void testOpereratorBinaryAdd(bool val1, bool val2)
+void testOpereratorBinaryAdd(double val1, double val2)
 {
 	double resultatAttendu;
 	double resultatOperation;
@@ -30,7 +30,7 @@ void testOpereratorBinaryAdd(bool val1, bool val2)
 	delete operationBin;
 }
 
-void testOpereratorBinaryDivide(bool val1, bool val2)
+void testOpereratorBinaryDivide(double val1, double val2)
 {
 	double resultatAttendu;
 	double resultatOperation;
@@ -45,7 +45,7 @@ void testOpereratorBinaryDivide(bool val1, bool val2)
 	delete operationBin;
 }
 
-void testOpereratorBinaryMultiply(bool val1, bool val2)
+void testOpereratorBinaryMultiply(double val1, double val2)
 {
 	double resultatAttendu;
 	double resultatOperation;
@@ -60,7 +60,7 @@ void testOpereratorBinaryMultiply(bool val1, bool val2)
 	delete operationBin;
 }
 
-void testOpereratorBinarySubtract(bool val1, bool val2)
+void testOpereratorBinarySubtract(double val1, double val2)
 {
 	double resultatAttendu;
 	double resultatOperation;
@@ -167,21 +167,12 @@ TEST_CASE("Tests sur les operateurs unaires", "[OperatorUnary]")
 	double resultatAttendu;
 	
 	//Test des opérations de carré
-	SECTION("Une operation unaire de carre renvoie une valeur correcte avec valeur positive")
+	SECTION("Une operation unaire de carre renvoie une valeur correcte")
 	{
 		operationUn = new OperatorUnarySquare();
 		resultatAttendu = pow(valeurUn,2);
 		
 		resultatOperation = operationUn->operate(valeurUn);	
-		REQUIRE(resultatAttendu == resultatOperation);
-	}
-	
-	SECTION("Une operation unaire de carre renvoie une valeur correcte avec valeur negative")
-	{
-		operationUn = new OperatorUnarySquare();
-		resultatAttendu = pow(moinsValeurUn,2);
-		
-		resultatOperation = operationUn->operate(moinsValeurUn);	
 		REQUIRE(resultatAttendu == resultatOperation);
 	}
 	
