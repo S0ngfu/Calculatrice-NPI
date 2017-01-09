@@ -118,7 +118,7 @@ std::string Calculatrice::operateChoice(const char &operateur)
             deleteOneCommand();
             break;
         case 'h':
-            return "q : permet d'arrêter la calculatrice\n+ : Addition\n- : Soustraction\n* : Multiplication\n/ : Division\ns : Mettre au carre\nr : Mettre a la racine carre\nw : Echange les deux dernieres valeurs\nd : Retire la derniere valeur\ni : Change le signe de la derniere valeur\nc : Compose par cosinus\nu : Compose par sinus\nt : Compose par tangente\ne : Compose par exponentielle\nn : Compose par logarithme neperien\no : Compose par logarithme decimal\np : Effectue x puissance y\na : Sauve la derniere valeur\ng : Permet de recuperer une valeur sauvegarder\nv : Permet de sauver une liste de commande\nx : Permet d'executer la liste de commande\nb : Permet de supprimer une liste de commandes";
+            return "q : permet d'arreter la calculatrice\n+ : Addition\n- : Soustraction\n* : Multiplication\n/ : Division\ns : Mettre au carre\nr : Mettre a la racine carre\nw : Echange les deux dernieres valeurs\nd : Retire la derniere valeur\ni : Change le signe de la derniere valeur\nc : Compose par cosinus\nu : Compose par sinus\nt : Compose par tangente\ne : Compose par exponentielle\nn : Compose par logarithme neperien\no : Compose par logarithme decimal\np : Effectue x puissance y\na : Sauve la derniere valeur\ng : Permet de recuperer une valeur sauvegarder\nv : Permet de sauver une liste de commande\nx : Permet d'executer la liste de commande\nb : Permet de supprimer une liste de commandes";
         case 'q':
             return "quit";
         default:
