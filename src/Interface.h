@@ -20,7 +20,7 @@ public:
     ///
 	/// \brief S'occupe de l'input et l'envoie à la calculatrice
 	/// \return True si la calculatrice doit s'arrêter, False sinon
-    virtual std::string input()=0;
+    virtual bool input(std::string inputs)=0;
 
     ///
 	/// \brief Met à jour l'interface

@@ -25,108 +25,6 @@ bool Calculatrice::isOnlyDouble(const char* str)
     return !(*endptr != '\0' || endptr == str);
 }
 
-std::string Calculatrice::operateChoice(const char &operateur)
-{
-    OperatorBinary* operationBin;
-    OperatorUnary* operationUn;
-    switch (operateur)
-    {
-        case '+':
-            operationBin = new OperatorBinaryAdd();
-            addOperate(operationBin);
-            break;
-        case '-':
-            operationBin = new OperatorBinarySubtract();
-            addOperate(operationBin);
-            break;
-        case '*':
-            operationBin = new OperatorBinaryMultiply();
-            addOperate(operationBin);
-            break;
-        case '/':
-            if(d_pile.peekLast() != 0) {
-                operationBin = new OperatorBinaryDivide();
-                addOperate(operationBin);
-            } else
-                return "Erreur : division par 0";
-            break;
-        case 's':
-            operationUn = new OperatorUnarySquare();
-            addOperate(operationUn);
-            break;
-        case 'r':
-            if(d_pile.peekLast() >= 0) {
-                operationUn = new OperatorUnarySquareRoot();
-                addOperate(operationUn);
-            } else
-                return "Erreur : racine carre d'un nombre negatif";
-            break;
-        case 'w':
-            d_pile.swap();
-            break;
-        case 'd':
-            d_pile.pop_back();
-            break;
-        case 'i':
-            operationUn = new OperatorUnaryChangeSign();
-            addOperate(operationUn);
-            break;
-        case 'c':
-            operationUn = new OperatorUnaryCosinus();
-            addOperate(operationUn);
-            break;
-        case 'u':
-            operationUn = new OperatorUnarySinus();
-            addOperate(operationUn);
-            break;
-        case 't':
-            operationUn = new OperatorUnaryTangente();
-            addOperate(operationUn);
-            break;
-        case 'e':
-            operationUn = new OperatorUnaryExponential();
-            addOperate(operationUn);
-            break;
-        case 'n':
-            operationUn = new OperatorUnaryNaturalLogarithm();
-            addOperate(operationUn);
-            break;
-        case 'o':
-            operationUn = new OperatorUnaryDecimalLogarithm();
-            addOperate(operationUn);
-            break;
-        case 'p':
-            operationBin = new OperatorBinaryPow();
-            addOperate(operationBin);
-            break;
-        case 'a':
-            d_saveValue.push_back(d_pile.peekLast());
-            break;
-        case 'g':
-            if(!d_saveValue.empty()) {
-                showSavedValue();
-                putSavedValueInPile();
-            }
-            break;
-        case 'v':
-            saveCommand();
-            break;
-        case 'x':
-            executeSavedCommand();
-            break;
-        case 'b':
-            deleteOneCommand();
-            break;
-        case 'h':
-            return "q : permet d'arreter la calculatrice\n+ : Addition\n- : Soustraction\n* : Multiplication\n/ : Division\ns : Mettre au carre\nr : Mettre a la racine carre\nw : Echange les deux dernieres valeurs\nd : Retire la derniere valeur\ni : Change le signe de la derniere valeur\nc : Compose par cosinus\nu : Compose par sinus\nt : Compose par tangente\ne : Compose par exponentielle\nn : Compose par logarithme neperien\no : Compose par logarithme decimal\np : Effectue x puissance y\na : Sauve la derniere valeur\ng : Permet de recuperer une valeur sauvegarder\nv : Permet de sauver une liste de commande\nx : Permet d'executer la liste de commande\nb : Permet de supprimer une liste de commandes";
-        case 'q':
-            return "quit";
-        default:
-            break;
-    }
-    return "";
-}
-
 void Calculatrice::addOperate(OperatorBinary* operation)
 {
     if(d_pile.size() >= 2)
@@ -139,104 +37,158 @@ void Calculatrice::addOperate(OperatorUnary* operation)
         d_pile.push(operation->operate(d_pile.return_pop_back()));
 }
 
-std::string Calculatrice::input(std::string& inputs)
-{
-    std::string exceptions;
-    const char *c = inputs.c_str();
-    if (isOnlyDouble(c))
-    {
-        double temp = stod(inputs, 0);
-        d_pile.push(temp);
-    }
-    else
-    {
-        exceptions = operateChoice(c[0]);
-    }
-    return exceptions;
-}
-
 Pile Calculatrice::getPile()
 {
     return d_pile;
 }
 
-void Calculatrice::showSavedValue() const
+void Calculatrice::pushInPile(double val)
 {
-    for(int i = 0 ; i < d_saveValue.size() ; i++)
-    {
-        std::cout<<i+1<<" : "<<d_saveValue[i]<<std::endl;
-    }
-    std::cout<<"Rentrez l'index de la valeur a remettre dans la pile"<<std::endl;
+    d_pile.push(val);
 }
 
-void Calculatrice::putSavedValueInPile() {
-    int index;
-    do
-    {
-        std::cin>>index;
-    } while(index <= 0 || index >= d_saveValue.size()+1);
+void Calculatrice::add()
+{
+    operationBin = new OperatorBinaryAdd();
+    addOperate(operationBin);
+}
+
+void Calculatrice::substract()
+{
+    operationBin = new OperatorBinarySubtract();
+    addOperate(operationBin);
+}
+
+void Calculatrice::multiply()
+{
+    operationBin = new OperatorBinaryMultiply();
+    addOperate(operationBin);
+}
+
+void Calculatrice::divide()
+{
+    operationBin = new OperatorBinaryDivide();
+    addOperate(operationBin);
+}
+
+void Calculatrice::square()
+{
+    operationUn = new OperatorUnarySquare();
+    addOperate(operationUn);
+}
+
+void Calculatrice::squareRoot()
+{
+    operationUn = new OperatorUnarySquareRoot();
+    addOperate(operationUn);
+}
+
+void Calculatrice::swap()
+{
+    d_pile.swap();
+}
+
+void Calculatrice::pop_back()
+{
+    d_pile.pop_back();
+}
+
+void Calculatrice::changeSign()
+{
+    operationUn = new OperatorUnaryChangeSign();
+    addOperate(operationUn);
+}
+
+void Calculatrice::cosinus()
+{
+    operationUn = new OperatorUnaryCosinus();
+    addOperate(operationUn);
+}
+
+void Calculatrice::sinus()
+{
+    operationUn = new OperatorUnarySinus();
+    addOperate(operationUn);
+}
+
+void Calculatrice::tangente()
+{
+    operationUn = new OperatorUnaryTangente();
+    addOperate(operationUn);
+}
+
+void Calculatrice::exponential()
+{
+    operationUn = new OperatorUnaryExponential();
+    addOperate(operationUn);
+}
+
+void Calculatrice::naturalLogarithm()
+{
+    operationUn = new OperatorUnaryNaturalLogarithm();
+    addOperate(operationUn);
+}
+
+void Calculatrice::decimalLogarithm()
+{
+    operationUn = new OperatorUnaryDecimalLogarithm();
+    addOperate(operationUn);
+}
+
+void Calculatrice::pow()
+{
+    operationBin = new OperatorBinaryPow();
+    addOperate(operationBin);
+}
+
+void Calculatrice::saveValue()
+{
+    d_saveValue.push_back(d_pile.peekLast());
+}
+
+void Calculatrice::putSavedValueInPile(int index)
+{
+    //Car index est entre 1 compris et d_saveValue.size() compris
     d_pile.push(d_saveValue[index-1]);
     d_saveValue[index-1] = d_saveValue[d_saveValue.size()-1];
     d_saveValue.pop_back();
 }
 
-void Calculatrice::saveCommand()
+std::vector<double> Calculatrice::getSavedValue()
 {
-    std::cout<<"Continue de sauvegarder la liste de commande tant qu'il n'y a pas de q"<<std::endl;
-    std::string temp = "";
-    std::string input;
-    std::cin>>input;
-    do
-    {
-        temp += input + " ";
-        std::cin>>input;
-    } while(input.front() != 'q');
-    d_saveCommand.push_back(temp);
+    return d_saveValue;
 }
 
-void Calculatrice::showSavedCommand() const
+std::vector<std::string> Calculatrice::getSavedCommand()
 {
-    for(int i = 0 ; i < d_saveCommand.size() ; i++)
-    {
-        std::cout<<i+1<<" : "<<d_saveCommand[i]<<std::endl;
-    }
-    std::cout<<"Rentrez l'index de la liste de commande a executer ou supprimer"<<std::endl;
+    return d_saveCommand;
 }
 
-void Calculatrice::executeSavedCommand()
+void Calculatrice::saveCommand(std::string commands)
 {
-    if(!d_saveCommand.empty()) {
-        showSavedCommand();
-        int index;
-        do {
-            std::cin >> index;
-        } while (index <= 0 || index >= d_saveCommand.size()+1);
-
-        std::string substring, temp = d_saveCommand[index - 1];
-        size_t pos = 0, len = 0;
-        while (!temp.empty()) {
-            len = temp.find(" ");
-            substring = temp.substr(pos, len);
-            input(substring);
-            temp.erase(pos, len + 1);
-        }
-    } else
-        std::cout<<"Aucune liste de commandes sauvee"<<std::endl;
+    d_saveCommand.push_back(commands);
 }
 
-void Calculatrice::deleteOneCommand()
+std::string Calculatrice::getSavedCommand(int index)
 {
-    if(!d_saveCommand.empty())
-    {
-        showSavedCommand();
-        int index;
-        do
-        {
-            std::cin>>index;
-        } while(index <= 0 || index >= d_saveCommand.size()+1);
-        d_saveCommand[index-1] = d_saveCommand[d_saveCommand.size()-1];
-        d_saveCommand.pop_back();
-    } else
-        std::cout<<"Aucune liste de commandes sauvee"<<std::endl;
+    //Car index est entre 1 compris et d_saveValue.size() compris
+    return d_saveCommand[index - 1];
+}
+
+void Calculatrice::deleteSavedCommand(int index)
+{
+    //Car index est entre 1 compris et d_saveValue.size() compris
+    d_saveCommand[index-1] = d_saveCommand[d_saveCommand.size()-1];
+    d_saveCommand.pop_back();
+}
+
+int Calculatrice::getNumberSavedValue()
+{
+    return d_saveValue.size();
+}
+
+int Calculatrice::getNumberSavedCommand()
+{
+    return d_saveCommand.size();
 }
 
